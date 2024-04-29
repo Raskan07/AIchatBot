@@ -14,8 +14,10 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
+    "@google/generative-ai": "^0.8.0",
     "@react-native-voice/voice": "^3.2.4",
     "@react-navigation/native": "^6.0.2",
+    "axios": "^1.6.8",
     "expo": "~50.0.14",
     "expo-blur": "~12.9.2",
     "expo-dev-client": "~3.3.11",
@@ -28,6 +30,7 @@
     "expo-system-ui": "~2.9.3",
     "expo-web-browser": "~12.8.2",
     "lottie-react-native": "6.5.1",
+    "openai": "^4.38.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.73.6",

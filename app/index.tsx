@@ -2,6 +2,8 @@ import Home from "@/components/Home";
 import Login from "@/components/Login";
 import Colors from "@/constants/Colors";
 import { StyleSheet, Text, View } from "react-native";
+import OpenAI from "openai";
+
 
 export default function Page() {
   return (

@@ -4,6 +4,7 @@ import LottieView from 'lottie-react-native';
 
 const HomeAnimation = () => {
     const animation = useRef(null);
+
   return (
     <View>
        <LottieView
