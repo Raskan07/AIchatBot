@@ -16,7 +16,7 @@ const HomeAnimation = () => {
           shadowColor:"pink",
           elevation:5,
         }}
-        source={require('../../assets/animations/bg.json')}
+        source={require('../../assets/animations/bgA.json')}
       />
     </View>
   )

@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View, useWindowDimensions,Image, TextInput } from 'react-native'
 import React, {useState } from 'react'
 import Colors from '@/constants/Colors'
-import { FontAwesome,FontAwesome6,MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome,FontAwesome6,MaterialIcons,Octicons } from '@expo/vector-icons';
 import HomeAnimation from '@/components/HomeComponents/HomeAnimation';
 import AiImage from '@/components/HomeComponents/AiImage';
 import AiResponse from '@/components/HomeComponents/AiResponse';
@@ -23,7 +23,7 @@ const Home = () => {
     const aiAvatar = "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/91/f3/96/91f3961c-9801-239a-489c-389480b3a04a/AppIcon-0-0-1x_U007epad-0-0-85-220.png/512x512bb.jpg"
 
 
-   const {loading,messages,run,processingIndex} = useAiResponse(userQuery);
+   const {loading,messages,run} = useAiResponse(userQuery);
 
    const handleResponse = async () => {
     setUserQuery('');
@@ -76,8 +76,8 @@ const Home = () => {
 
 
         </View >
-            <View style={{marginTop:20,width:"100%",flexDirection:"row",alignItems:"center",gap:10}}  >
-                <View style={{flexDirection:"row",padding:5,gap:10,backgroundColor:"#2a2c33",alignItems:"center",justifyContent:"center", borderRadius:30,paddingLeft:10,paddingRight:10}}>
+            <View style={{marginTop:20,width:"100%",flexDirection:"row",alignItems:"center",gap:10,justifyContent:"space-between"}}  >
+                <View style={{flexDirection:"row",padding:5,gap:10,backgroundColor:"#2a2c33",alignItems:"center",justifyContent:"center", borderRadius:30,paddingLeft:10,paddingRight:10,width:"90%"}}>
                     <MaterialIcons name="emoji-emotions" size={24} color="gray"  />
                     <TextInput
                     value={userQuery}
@@ -88,13 +88,8 @@ const Home = () => {
                     <FontAwesome6 name="hashnode" size={24} color="gray"  />
                     <FontAwesome name="camera" size={24} color="gray"   />
                 </View>
-                <TouchableOpacity onPress={handleResponse}>
-                <FontAwesome 
-                name="microphone" 
-                size={20} 
-                color={"#FFF"} 
-                style={[{padding:10,borderRadius:30},recording ? {backgroundColor:"#ef4444"} : {backgroundColor:Colors.root.aiText}]}
-                />
+                <TouchableOpacity onPress={handleResponse} style={{padding:10,backgroundColor:Colors.root.aiText,borderRadius:30,marginRight:10,alignItems:"center"}} >
+                <Octicons name="paper-airplane" size={24} color="#FFF" />
                 </TouchableOpacity>
             </View>
         </View>
