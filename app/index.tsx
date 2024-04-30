@@ -1,14 +1,17 @@
-import Home from "@/components/Home";
-import Login from "@/components/Login";
 import Colors from "@/constants/Colors";
 import { StyleSheet, Text, View } from "react-native";
+import Home from "./Home";
+import Login from "./Login";
 import OpenAI from "openai";
 
 
 export default function Page() {
+  const user = true
   return (
     <View style={[styles.container,StyleSheet.absoluteFill,{backgroundColor:Colors.root.background}]}>
-      <Home />
+     {
+      user ? <Home /> : <Login />
+     }
     </View>
   );
 }

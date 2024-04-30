@@ -1,8 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity, View,Image} from 'react-native'
 import React from 'react'
-import Animation from './Animation'
 import Colors from '@/constants/Colors'
 import { BlurView } from 'expo-blur';
+import Animation from '@/components/Animation';
 
 const Login = () => {
     const icon = require("../assets/png/google.png")
