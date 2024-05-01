@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View, useWindowDimensions,Image, TextInput } from 'react-native'
-import React, {useState } from 'react'
+import React, {useState,useRef, useEffect } from 'react'
 import Colors from '@/constants/Colors'
 import { FontAwesome,FontAwesome6,MaterialIcons,Octicons } from '@expo/vector-icons';
 import HomeAnimation from '@/components/HomeComponents/HomeAnimation';
@@ -16,19 +16,32 @@ import LoadingAnimation from '@/components/HomeComponents/Loading';
 
 const Home = () => {
     const a = "https://i.insider.com/5739f6f2dd0895cd528b4668?width=800&format=jpeg&auto=webp"
-    const [recording,setRecording] = useState(false);
     const [userQuery,setUserQuery] = useState('')
     const {width} = useWindowDimensions();
     const customWidth = width * 0.98
     const aiAvatar = "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/91/f3/96/91f3961c-9801-239a-489c-389480b3a04a/AppIcon-0-0-1x_U007epad-0-0-85-220.png/512x512bb.jpg"
 
 
+    const scrollRef =  useRef<any>();
    const {loading,messages,run} = useAiResponse(userQuery);
+
+   const UpdateScrollView = () => {
+    setTimeout(() => {
+        scrollRef?.current?.scrollToEnd({animated:true})
+    })
+   }
+
 
    const handleResponse = async () => {
     setUserQuery('');
+    UpdateScrollView();
     await run();
+    UpdateScrollView();
    }
+
+   
+
+
 
   
 
@@ -36,10 +49,12 @@ const Home = () => {
   return (
     <View style={{flex:1,alignItems:"center",justifyContent:"center",width:"100%"}}>
         <View style={{flex:1}}>
-            {messages.length == 0 && <HomeAnimation />}
+            {messages.length == 0 && <HomeAnimation  />}
 
             {messages && 
-            <ScrollView style={{flex:1,marginTop:40,width:customWidth}} bounces={false} showsHorizontalScrollIndicator={false}>
+            <ScrollView
+            ref={scrollRef}
+             style={{flex:1,marginTop:40,width:customWidth}} bounces={false} showsHorizontalScrollIndicator={false}>
                 {
                     messages.map((message:any,index:any) => {
                         const isLastMessage = index === messages.length - 1;
@@ -58,7 +73,7 @@ const Home = () => {
                             }else{
                                 return(
                                     <View>
-                                        { loading  && (isAssistantMessage && isLastMessage) ? <LoadingAnimation key={index} /> : <AiResponse index={index} message={message.content} aiAvatar={aiAvatar} /> }   
+                                        <AiResponse index={index} message={message.content} aiAvatar={aiAvatar} />              
                                     </View>
                                 ) // ai message
                             } 
@@ -67,9 +82,8 @@ const Home = () => {
                                <UserResponse index={index} message={message.content} userAvatar={a}  />
                             ) // user text message
                         }
-
-                        
                     }
+                    
                     )
                 }
             </ScrollView>}
