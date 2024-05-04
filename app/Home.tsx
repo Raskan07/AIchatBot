@@ -72,7 +72,7 @@ const Home = () => {
                                 ) //ai image
                             }else{
                                 return(
-                                    <View>
+                                    <View key={index}>
                                         <AiResponse index={index} message={message.content} aiAvatar={aiAvatar} />              
                                     </View>
                                 ) // ai message
