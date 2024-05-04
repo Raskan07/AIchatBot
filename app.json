@@ -16,7 +16,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier":"com.raskan.AIBOT",
+      "infoPlist":{
+        "CFBundleURLSchemes":[
+          "com.googleusercontent.apps.1018502525549-defdf6lni8jn71ern1vuj0e1bv8cnbqq"
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -36,6 +42,7 @@
     "plugins": [
       "expo-router",
       "@react-native-voice/voice",
+      "@react-native-google-signin/google-signin",
       [
         "expo-dev-launcher",
         {
