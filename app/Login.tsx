@@ -5,34 +5,10 @@ import { BlurView } from 'expo-blur';
 import Animation from '@/components/Animation';
 import {GoogleSignin,GoogleSigninButton,statusCodes}  from "@react-native-google-signin/google-signin"
 
-const Login = () => {
+const Login = ({SignIn}:any) => {
     const icon = require("../assets/png/google.png")
 
-    const ConfigureGoogleSignIn = () =>{
-      GoogleSignin.configure({
-        webClientId:"1018502525549-o07g984q7u98je1d3tsaeav16ag80ngj.apps.googleusercontent.com",
-        // @ts-ignore
-        androidClientId:"1018502525549-5dlmo88ibdtoolt4ujikblh5bh462tqo.apps.googleusercontent.com",
-        iosClientId:"1018502525549-defdf6lni8jn71ern1vuj0e1bv8cnbqq.apps.googleusercontent.com",
-      })
-    }
-
-    useEffect(()=>{
-      ConfigureGoogleSignIn();
-    })
-
-    const SignIn = async () => {
-      console.log("signIn")
-
-      try {
-        await GoogleSignin.hasPlayServices();
-        const userInfo = await GoogleSignin.signIn()
-        console.log("user info",userInfo)
-        
-      } catch (error) {
-        console.log(error)
-      }
-    }
+    
 
   return (
     <View style={{flex:1,width:"100%",alignItems:"center"}}>

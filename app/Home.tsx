@@ -68,18 +68,18 @@ const Home = () => {
                         if(message.role === "assistent"){
                             if(message.content.includes('https')){
                                 return(
-                                    <AiImage index={index} url={message.content} aiAvatar={aiAvatar} />
+                                    <AiImage index={index} url={message.content} aiAvatar={aiAvatar} key={index} />
                                 ) //ai image
                             }else{
                                 return(
                                     <View key={index}>
-                                        <AiResponse index={index} message={message.content} aiAvatar={aiAvatar} />              
+                                        <AiResponse index={index} message={message.content} aiAvatar={aiAvatar} key={index} />              
                                     </View>
                                 ) // ai message
                             } 
                         }else{
                             return (
-                               <UserResponse index={index} message={message.content} userAvatar={a}  />
+                               <UserResponse index={index} message={message.content} userAvatar={a} key={index}  />
                             ) // user text message
                         }
                     }
