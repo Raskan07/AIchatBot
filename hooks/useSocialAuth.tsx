@@ -1,9 +1,19 @@
 import { useUserStore } from "@/store/useUserStore";
 import {GoogleSignin,GoogleSigninButton,statusCodes}  from "@react-native-google-signin/google-signin"
 import { useEffect, useState } from "react";
+import { collection, addDoc ,Timestamp} from "firebase/firestore"; 
+import { db } from "@/api/firebase";
 
 const useSoicalAuth  = () => {
     const {setUser} = useUserStore()
+
+    function getCurrentTimestamp() {
+        const milliseconds = Date.now();
+        const seconds = Math.floor(milliseconds / 1000);
+        const nanoseconds = milliseconds % 1000 * 1000000;
+        return new Timestamp(seconds, nanoseconds);
+      }
+    
 
     const [isUserSignIn,setUserSignIn] = useState<any>(false);
     const ConfigureGoogleSignIn = () =>{
@@ -35,6 +45,21 @@ const useSoicalAuth  = () => {
                 photoUrl:userInfo.user.photo,
                 isLogin:true,
             })
+            try {
+                const docRef = await addDoc(collection(db, "users"), {
+                    userId:userInfo.user.id,
+                    userName:userInfo.user.name,
+                    email:userInfo.user.email,
+                    photoUrl:userInfo.user.photo,
+                    isLogin:true,
+                    createdAt :getCurrentTimestamp()
+                  });
+                  console.log("Document written with ID: ", docRef.id);
+                
+                
+            } catch (error) {
+                console.log(error);
+            }
           }
           
           

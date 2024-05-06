@@ -8,10 +8,11 @@ import { useUserStore } from "@/store/useUserStore";
 
 
 export default function Page() {
-  const user = !true
 
   const {SignIn} = useSoicalAuth();
-  const {isLogin} = useUserStore()
+  const {isLogin,userName} = useUserStore()
+  console.log(userName)
+
 
 
   return (

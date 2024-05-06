@@ -39,12 +39,6 @@ const Home = () => {
     UpdateScrollView();
    }
 
-   
-
-
-
-  
-
 
   return (
     <View style={{flex:1,alignItems:"center",justifyContent:"center",width:"100%"}}>
