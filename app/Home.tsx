@@ -15,7 +15,7 @@ import LoadingAnimation from '@/components/HomeComponents/Loading';
 
 
 const Home = () => {
-    const a = "https://i.insider.com/5739f6f2dd0895cd528b4668?width=800&format=jpeg&auto=webp"
+    const a = "https://shuoutreach.com/wp-content/uploads/2022/01/person-icon.png"
     const [userQuery,setUserQuery] = useState('')
     const {width} = useWindowDimensions();
     const customWidth = width * 0.98
