@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "AI-BOT",
+    "name": "ALI",
     "slug": "AI-BOT",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -27,7 +27,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000000"
       },
       "permissions": [
         "android.permission.RECORD_AUDIO"

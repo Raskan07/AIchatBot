@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { useUserStore } from "@/store/useUserStore";
 
 const useAiResponse = (query: any) => {
     const [messages, setMessages] = useState<any>([]);
@@ -8,6 +9,7 @@ const useAiResponse = (query: any) => {
     const [processingIndex, setProcessingIndex] = useState<number>()
     const [val,setValue] = useState(0)
     const last =  messages?.length -1
+    const {userName} = useUserStore()
 
     // console.log(JSON.stringify(messages,null,2))
     // console.log(JSON.stringify(messages.length))
@@ -52,11 +54,11 @@ const useAiResponse = (query: any) => {
           history: [
             {
               role: "user",
-              parts: [{ text: "Hello, i am raskan , i am programmer " }],
+              parts: [{ text: `Hello, i am ${userName} , i am programmer ` }],
             },
             {
               role: "model",
-              parts: [{ text: "hello raskan ,  i am  personal assistent Ali" }],
+              parts: [{ text: `hello ${userName} ,  i am  personal assistent Ali` }],
             },
           ],
           generationConfig: {
