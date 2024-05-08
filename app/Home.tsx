@@ -20,12 +20,9 @@ const Home = () => {
     const {width} = useWindowDimensions();
     const customWidth = width * 0.98
     const aiAvatar = "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/91/f3/96/91f3961c-9801-239a-489c-389480b3a04a/AppIcon-0-0-1x_U007epad-0-0-85-220.png/512x512bb.jpg"
-
-
     const scrollRef =  useRef<any>();
-   const {loading,messages,run} = useAiResponse(userQuery);
-
-   const UpdateScrollView = () => {
+    const {loading,messages,run} = useAiResponse(userQuery);
+    const UpdateScrollView = () => {
     setTimeout(() => {
         scrollRef?.current?.scrollToEnd({animated:true})
     })
