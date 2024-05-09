@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import LottieView from 'lottie-react-native';
 import Colors from '@/constants/Colors';
 import LoadingAnimation from './Loading';
+import { useUserStore } from '@/store/useUserStore';
 
 const HomeAnimation = () => {
     const animation = useRef(null);
@@ -22,6 +23,8 @@ const HomeAnimation = () => {
       }
 
     },[])
+
+    const {userName}  =  useUserStore()
     
 
   return (
@@ -39,7 +42,7 @@ const HomeAnimation = () => {
       />
       <View>
       <View style={{backgroundColor:Colors.root.aiText,padding:5,borderRadius:15,width:"90%"}}>
-        <Text style={{color:Colors.root.text,padding:3}}>Hello Raskan , i am you personal assistant Ali  </Text>
+        <Text style={{color:Colors.root.text,padding:3}}>Hello {userName}, i am you personal assistant Ali  </Text>
       </View>
 
       {

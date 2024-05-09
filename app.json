@@ -18,6 +18,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier":"com.raskan.AIBOT",
+      "backgroundColor":"#000000",
       "infoPlist":{
         "CFBundleURLSchemes":[
           "com.googleusercontent.apps.1018502525549-defdf6lni8jn71ern1vuj0e1bv8cnbqq"
@@ -29,6 +30,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#000000"
       },
+      "backgroundColor":"#000000",
       "permissions": [
         "android.permission.RECORD_AUDIO"
       ],
